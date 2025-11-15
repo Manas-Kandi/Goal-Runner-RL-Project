@@ -1,0 +1,50 @@
+# Default training configuration for Goal Runner RL Project
+# This file contains hyperparameters and settings for PPO training
+
+training:
+  total_timesteps: 100000
+  learning_rate: 0.0003
+  algorithm: "PPO"
+  n_steps: 2048
+  batch_size: 64
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.01
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  seed: 42
+
+environment:
+  max_episode_steps: 200
+  reward_scaling: 1.0
+  timeout_penalty: 0.5
+  goal_reward: 1.0
+  wall_penalty: -1.0
+  step_penalty: -0.01
+
+logging:
+  tensorboard: true
+  checkpoint_freq: 10000
+  eval_freq: 5000
+  n_eval_episodes: 10
+  verbose: 1
+
+model:
+  policy: "MlpPolicy"
+  activation_fn: "relu"
+  net_arch: [64, 64]
+  use_sde: false
+  sde_sample_freq: -1
+
+network:
+  port: 12001
+  timeout_ms: 5000
+  speedup: 1.0
+  
+evaluation:
+  eval_episodes: 100
+  success_threshold: 0.95
+  max_steps_eval: 100
+  render: false

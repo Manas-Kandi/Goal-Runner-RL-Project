@@ -1,0 +1,29 @@
+# Core RL dependencies
+godot-rl==0.8.2
+stable-baselines3==2.2.1
+torch==2.1.0
+gymnasium==0.29.1
+
+# Logging and monitoring
+tensorboard==2.15.1
+wandb==0.16.0
+
+# Data processing
+numpy==1.24.3
+pandas==2.0.3
+
+# Testing and development
+pytest==7.4.3
+pytest-cov==4.1.0
+black==23.9.1
+flake8==6.1.0
+mypy==1.6.1
+
+# Model export
+onnx==1.15.0
+onnxruntime==1.16.3
+
+# Utilities
+tqdm==4.66.1
+pyyaml==6.0.1
+click==8.1.7
