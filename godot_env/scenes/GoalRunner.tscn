@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqw8ymn5xr5yh"]
+
+[ext_resource type="PackedScene" uid="uid://cqw8ymn5xr5yh" path="res://scenes/Agent.tscn" id="1_agent"]
+[ext_resource type="PackedScene" uid="uid://bv8hn5xr3j2k" path="res://scenes/Wall.tscn" id="2_wall"]
+[ext_resource type="PackedScene" uid="uid://d2k8ym5xr9pq" path="res://scenes/Goal.tscn" id="3_goal"]
+
+[node name="GoalRunner" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Environment"]
+
+[node name="Wall_Top" parent="Environment/Walls" instance=ExtResource("2_wall")]
+position = Vector2(400, 20)
+scale = Vector2(8, 1)
+
+[node name="Wall_Bottom" parent="Environment/Walls" instance=ExtResource("2_wall")]
+position = Vector2(400, 580)
+scale = Vector2(8, 1)
+
+[node name="Wall_Left" parent="Environment/Walls" instance=ExtResource("2_wall")]
+position = Vector2(20, 300)
+rotation = 1.5708
+scale = Vector2(6, 1)
+
+[node name="Wall_Right" parent="Environment/Walls" instance=ExtResource("2_wall")]
+position = Vector2(780, 300)
+rotation = 1.5708
+scale = Vector2(6, 1)
+
+[node name="Wall_Obstacle1" parent="Environment/Walls" instance=ExtResource("2_wall")]
+position = Vector2(300, 300)
+scale = Vector2(2, 1)
+
+[node name="Wall_Obstacle2" parent="Environment/Walls" instance=ExtResource("2_wall")]
+position = Vector2(500, 200)
+scale = Vector2(1.5, 1)
+
+[node name="Wall_Obstacle3" parent="Environment/Walls" instance=ExtResource("2_wall")]
+position = Vector2(500, 400)
+scale = Vector2(1.5, 1)
+
+[node name="Goal" parent="Environment" instance=ExtResource("3_goal")]
+position = Vector2(700, 300)
+
+[node name="Agent" parent="." instance=ExtResource("1_agent")]
+position = Vector2(150, 300)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TrainingInfo" type="Label" parent="UI"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 250.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Episode: 0
+Steps: 0
+Reward: 0.00
+Status: Running"
+
+[node name="EpisodeCounter" type="Label" parent="UI"]
+offset_left = 10.0
+offset_top = 110.0
+offset_right = 250.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 12
+text = "Success Rate: 0%
+Avg Reward: 0.00"
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0.1, 0.1, 0.15, 1)

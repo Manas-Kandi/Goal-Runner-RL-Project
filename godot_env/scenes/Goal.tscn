@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2k8ym5xr9pq"]
+
+[ext_resource type="Script" path="res://scripts/GoalDetector.gd" id="1_goal"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goal"]
+radius = 20.0
+
+[node name="Goal" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_goal")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_goal")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.2, 0.8, 0.2, 1)
+scale = Vector2(40, 40)
+texture = SubResource("PlaceholderTexture2D_goal")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_goal"]
+size = Vector2(1, 1)
